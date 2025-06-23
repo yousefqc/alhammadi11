@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>موقعي</title>
+  <style>
+    body {
+      background-color: #f0f0f0; /* غير اللون حسب ذوقك */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -77,23 +88,23 @@
 <body>
 
   <div class="navbar">
-    <h1>🛡️ وزارة الداخلية</h1>
+    <h1>🚔 وزارة الداخلية</h1>
     <span>نموذج التقديم</span>
   </div>
 
   <div class="container">
     <h2>📥 تقديم طلب</h2>
     <form id="form">
-      <label>الاسم الكامل:</label>
+      <label>يوزر الحساب دسكورد:</label>
       <input type="text" id="name" required>
 
-      <label>الرقم المدني:</label>
+      <label>الايدي:</label>
       <input type="text" id="cid" required>
 
-      <label>رقم الهاتف:</label>
+      <label>العمر:</label>
       <input type="text" id="phone" required>
 
-      <label>السيرة الذاتية:</label>
+      <label>سبب التقديم:</label>
       <textarea id="cv" rows="4" required></textarea>
 
       <button type="submit">إرسال الطلب</button>
@@ -113,7 +124,7 @@
       const phone = document.getElementById("phone").value;
       const cv = document.getElementById("cv").value;
 
-      const message = `📥 **تقديم جديد**\n👤 الاسم: ${name}\n🆔 الرقم المدني: ${cid}\n📞 الهاتف: ${phone}\n📝 السيرة الذاتية:\n${cv}`;
+      const message = `📥 **تقديم جديد**\n👤 اليوزر: ${name}\n🆔 الايدي: ${cid}\n📞 العمر: ${phone}\n📝 سبب التقديم:\n${cv}`;
 
       fetch("https://discord.com/api/webhooks/1386728570109431829/8ldipKzTj2tOLcvswLVIfzY2Feetz3lzS7bkWmF3tB_uoXjiHV8HhJxMWKzCJ_KWyzCp", {
         method: "POST",
