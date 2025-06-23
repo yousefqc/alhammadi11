@@ -2,21 +2,89 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>نموذج تقديم</title>
+  <title>تقديم وزارة الداخلية</title>
   <style>
-    body { font-family: Tahoma, sans-serif; background-color: #f4f4f4; padding: 20px; direction: rtl; }
-    .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    h2 { text-align: center; }
-    label { display: block; margin-top: 10px; }
-    input, textarea { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; }
-    button { margin-top: 15px; padding: 10px; background-color: #007bff; color: white; border: none; border-radius: 5px; width: 100%; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      direction: rtl;
+    }
+
+    .navbar {
+      background-color: #1f2937;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #1f2937;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 25px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #status {
+      text-align: center;
+      margin-top: 15px;
+      color: green;
+    }
   </style>
 </head>
 <body>
+
+  <div class="navbar">
+    <h1>🛡️ وزارة الداخلية</h1>
+    <span>نموذج التقديم</span>
+  </div>
+
   <div class="container">
-    <h2>نموذج تقديم وزارة الداخلية</h2>
+    <h2>📥 تقديم طلب</h2>
     <form id="form">
-      <label>الاسم:</label>
+      <label>الاسم الكامل:</label>
       <input type="text" id="name" required>
 
       <label>الرقم المدني:</label>
@@ -26,11 +94,11 @@
       <input type="text" id="phone" required>
 
       <label>السيرة الذاتية:</label>
-      <textarea id="cv" rows="5" required></textarea>
+      <textarea id="cv" rows="4" required></textarea>
 
-      <button type="submit">إرسال</button>
+      <button type="submit">إرسال الطلب</button>
     </form>
-    <p id="status" style="margin-top:10px;text-align:center;"></p>
+    <div id="status"></div>
   </div>
 
   <script>
@@ -56,13 +124,13 @@
       })
       .then(response => {
         if (response.ok) {
-          status.innerText = "✅ تم الإرسال بنجاح!";
+          status.innerText = "✅ تم إرسال الطلب بنجاح!";
           form.reset();
         } else {
           status.innerText = "❌ حدث خطأ أثناء الإرسال.";
         }
       })
-      .catch(error => {
+      .catch(() => {
         status.innerText = "❌ تعذر الاتصال.";
       });
     });
